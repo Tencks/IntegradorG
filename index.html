@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Proyecto Integrador</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='styles.css'>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+</head>
+<body>
+    
+    <!-- NAVBAR  -->
+
+    <nav class="navbar sticky-top navbar-expand-lg bg-body-tertiary" id="home" style="background: rebeccapurple !important;"> 
+        <div class="container-fluid">
+          <a class="navbar-brand" onclick="HomeNav()" style="cursor: pointer;">Navbar</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+             
+                <li class="nav-item">
+                <a class="nav-link active" aria-current="page" onclick="HomeNav()" style="cursor: pointer;">Home</a>
+              </li>
+              
+              <li class="nav-item">
+                <a class="nav-link"  onclick="LoginNav()" style="cursor: pointer;">Registrarse/Iniciar Sesion</a>
+              </li>
+              
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Perfil de Usuario
+                </a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" onclick="PerfilNav()" style="cursor: pointer;">Entrar al perfil</a></li>
+                  <li><a class="dropdown-item" onclick="UpdatePerfilNav()" style="cursor: pointer;">Editar perfil</a></li>
+                  <li><hr class="dropdown-divider"></li>
+                  <li><a class="dropdown-item" onclick="Options()" style="cursor: pointer;">Opciones</a></li>
+                </ul>
+              </li>
+              
+          </div>
+        </div>
+      </nav>
+
+    <!-- FIN-NAVBAR -->
+
+      <!-- INICIO  -->
+
+      
+
+      <!-- FIN INICIO  -->
+
+
+
+
+
+
+    <!-- REGISTRO-INICIO  -->
+
+    
+<section class="vh-100 bg-image" style="margin-top: 3%;background-color: brown; ">
+    <div class="container"  id="login">
+    <div class="mask d-flex align-items-center h-100 gradient-custom-3">
+        <div class="container h-100">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col-12 col-md-9 col-lg-7 col-xl-6">
+            <div class="card" style="border-radius: 15px;">
+                <div class="card-body p-5">
+                <h2 class="text-uppercase text-center mb-5">Ingresa al sistema</h2>
+
+        <form id="login">
+            <div class="col">
+                <div class="form-outline mb-4">
+                    <label class="form-label" for="form3Example1cg" >Nombre</label>
+                   <input type="text" id="form3Example1cg" class="form-control form-control-lg" formControlName="user_id"/>
+                 </div>
+    
+                 <div class="form-outline mb-4">
+                  <label class="form-label" for="form3Example4cg" >Contraseña</label>
+                 <input type="password" id="form3Example4cg" class="form-control form-control-lg" formControlName="password"/>
+               </div>
+    
+             
+    
+                 <div class="d-flex justify-content-center">
+                   <button type="submit"
+                     class="btn btn-success btn-block btn-lg gradient-custom-4 text-body">Ingresar</button>
+                 </div>
+    
+                 <p class="text-center text-muted mt-5 mb-0">Si no tienes una cuenta puedes <a onclick="OnRegisterButton()"
+                     class="fw-bold text-body" style="cursor: pointer;"><u>Ingresar aquí</u></a></p>
+            </div>
+        </form>
+      
+
+    </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+
+<section class="vh-100 bg-image">
+    <div class="container" style="background-color: brown;" id="registro">
+    <div class="mask d-flex align-items-center h-100 gradient-custom-3">
+        <div class="container h-100">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col-12 col-md-9 col-lg-7 col-xl-6">
+            <div class="card" style="border-radius: 15px;">
+                <div class="card-body p-5">
+                <h2 class="text-uppercase text-center mb-5">Registrarse</h2>
+
+      <div class="container">
+        <form id="register">
+            <div class="form-outline mb-4">
+                <label class="form-label" for="form3Example1cg" >Nombre</label>
+               <input type="text" id="form3Example1cg" class="form-control form-control-lg" formControlName="username"/>
+             </div>
+
+             <div class="form-outline mb-4">
+                <label class="form-label" for="form3Example3cg" >Correo Electrónico</label>
+               <input type="email" id="form3Example3cg" class="form-control form-control-lg" formControlName="email"/>
+             </div>
+
+             <div class="form-outline mb-4">
+                <label class="form-label" for="form3Example4cg" >Contraseña</label>
+               <input type="password" id="form3Example4cg" class="form-control form-control-lg" formControlName="password"/>
+             </div>
+
+             <div class="form-outline mb-4">
+                <label class="form-label" for="form3Example4cdg">Repite tu contraseña</label>
+               <input type="password" id="form3Example4cdg" class="form-control form-control-lg"  formControlName="confirmPassword" />
+             </div>
+
+             <div class="form-outline mb-4">
+               <label class="form-label" for="form3Example4cdg">Seleccione su cargo</label>
+               <select class="form-select" aria-label="Default select example" formControlName="cargo">
+                 <ng-container *ngIf="usuariosCreados; else noUsuarios">
+                   <option *ngFor="let option of cargoClass; let first = first" [value]="option.value" [disabled]="!first">{{ option.label }}</option>
+                 </ng-container>
+                 <ng-template #noUsuarios>
+                   <option *ngFor="let option of cargoClass" [value]="option.value">{{ option.label }}</option>
+                 </ng-template>
+               </select>
+             </div>
+             
+
+             <div class="d-flex justify-content-center">
+               <button type="submit"
+                 class="btn btn-success btn-block btn-lg gradient-custom-4 text-body">Registrarse</button>
+             </div>
+
+             <p class="text-center text-muted mt-5 mb-0">Si ya tienes una cuenta puedes <a href="#!"
+                 class="fw-bold text-body"><u>Ingresar aquí</u></a></p>
+        </form>
+
+    </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+
+    <!-- FIN REGISTRO-INICIO  -->
+
+
+    <!-- INICIO-PANEL-USUARIO  -->
+
+    
+<div class="row w-100 text-center bg-info" style="margin-bottom: 2.6vh;" id="perfil">
+    <h1 class="display-4 fw-medium" style="padding: 1.5%;">Perfil del usuario</h1>
+</div>
+
+    <div class="container" *ngIf="userDatos">
+        <div class="row gutters">
+          <div class="col-xl-3 col-lg-3 col-md-12 col-sm-12 col-12" style="margin-bottom: 2%;">
+            <div class="card h-100">
+              <div class="card-body">
+                <div class="account-settings">
+                  <div class="user-profile">
+                    <div class="user-avatar">
+                      <img *ngIf="userDatos.fotoUser" [src]="userDatos.fotoUser" alt="{{ userDatos.username }} Avatar">
+                      <img *ngIf="!userDatos.fotoUser" src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="Default Avatar">
+                    </div>
+                    <h5 class="user-name">{{ userDatos.username }}</h5>
+                    <h6 class="user-email">{{ userDatos.email }}</h6>
+                  </div>
+                  <div class="about">
+                    <h5>Descripción</h5>
+                    <p cols="30" rows="10">{{userDatos.descriptionUser}}</p>
+                  </div>
+                </div>
+              </div>
+            </div>   
+          </div>
+
+
+          <div class="col-xl-9 col-lg-9 col-md-12 col-sm-12 col-12" style="margin-bottom: 2%;">
+            <div class="card h-100">
+              <div class="card-body">
+                <div class="row gutters">
+                  <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                    <h5 class="mb-2 text-primary">Datos personales</h5>
+                  </div>
+                  <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                    <div class="form-group">
+                      <label for="fullName">Nombre</label>
+                      <input type="text" class="form-control" id="fullName" [placeholder]="userDatos.username" disabled>
+                    </div>
+                  </div>
+                  <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                    <div class="form-group">
+                      <label for="eMail">Correo</label>
+                      <input type="email" class="form-control" id="eMail" [placeholder]="userDatos.email" disabled>
+                    </div>
+                  </div>
+                  
+                  <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12" style="margin-top: 1%;">
+                    <div class="form-group">
+                      <label for="phone">Número celular</label>
+                      <input type="text" class="form-control" id="phone" [placeholder]="userDatos.numCelular" disabled>
+                    </div>
+                  </div>
+
+                  <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12"  style="margin-top: 1%;">
+                    <div class="form-group">
+                      <label for="phone">Domicilio</label>
+                      <input type="text" class="form-control" id="phone" [placeholder]="userDatos.direccion" disabled>
+                    </div>
+                  </div>
+
+                </div>
+                <div class="row gutters">
+
+                  <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                    <h5 class="mt-3 mb-2 text-primary">Otros datos</h5>
+                  </div>
+
+                  <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                    <div class="form-group">
+                      <label for="Street">Cumpleaños</label>
+                      <input type="text" class="form-control" id="Street" [placeholder]="userDatos.birthday| date: 'dd/MM/yyyy'" disabled>
+                    </div>
+                  </div>
+
+                  <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                    <div class="form-group">
+                      <label for="Street">Cargo</label>
+                      <input type="text" class="form-control" id="Street" [placeholder]="userDatos.cargo " disabled>
+                    </div>
+                  </div>
+
+                </div>
+                <div class="row gutters">
+                  <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                    <p></p>
+                    <div class="text-right">
+                      <button type="button" class="btn btn-primary" (click)="onUpdateDatos()" style="margin-right: 1%;">
+                        Actualizar datos
+                      </button>
+                      <button *ngIf="cargoUsuario === '4'" class="btn btn-success" style="margin-right: 1%;" (click)="VerPermisos()">
+                        Ver Permisos
+                      </button>
+                      <button class="btn btn-danger" (click)="onLogout()">
+                        Desconectarse
+                      </button>
+                     
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+    <!--FIN-INICIO-PANEL-USUARIO  -->
+
+    <!-- EDITAR PERFIL  -->
+
+
+<div class="row w-100 text-center bg-info" style="margin-bottom: 2.6vh;" id="updatePerfil">
+        <h1 class="display-4 fw-medium" style="padding: 1.5%;">Actualizar datos del usuario</h1>
+</div>
+    
+    
+    
+    <div class="container" style="background-color: white;">
+        <form id="updatePerfil" >
+
+            <div class="container" >
+
+                  <div class="container h-100">
+                    <div class="row">
+                      <div class="col">
+                        <mat-label>Domicilio</mat-label>
+                        <input type="text" class="form-control" formControlName="direccion">
+                      </div>
+                      <div class="col">
+                          <mat-label>Número de celular</mat-label>
+                          <input type="text" class="form-control"  formControlName="numCelular">
+                        </div>
+                    </div>
+            
+                    <hr class="mx-n3">
+          
+                    <div class="row">
+                      <div class="col">
+                          <mat-label>Desripción</mat-label>
+                          <textarea class="form-control" rows="3"  formControlName="descriptionUser"></textarea>
+                        </div>
+                    </div>
+               
+                    <hr class="mx-n3">
+            
+                  </div>          
+            </div>
+    
+            <div class="container">
+                
+                <div class="row">
+                    <div class="col">
+                    <mat-label>Nombre de usuario</mat-label>
+                    <input type="text" class="form-control"  aria-label="Nombre" formControlName="username">
+                    </div>
+                    <div class="col">
+                    <mat-label>Contraseña</mat-label>
+                    <input type="password" class="form-control" aria-label="Apellido" formControlName="password" >
+                    </div>
+                </div>
+            
+                <hr class="mx-n3">
+            
+                <div class="row">
+                    <div class="col">
+                    <mat-label>Fecha de cumpleaños</mat-label>
+                    <input type="date" class="form-control"  formControlName="birthday">
+                    </div>
+                    <div class="col">
+                    <mat-label>Correo electrónico</mat-label>
+                    <input type="email" class="form-control" formControlName="email" >
+                    </div>
+                </div>
+            
+                <hr class="mx-n3">
+            
+                <div class="row">
+                    <div class="col">
+            
+                        <mat-label>Selección de cargo </mat-label>
+                        <select class="form-select" aria-label="Default select example"  formControlName="cargo" [disabled]="true" >
+                            <option *ngFor="let option of cargoClass" [disabled]="true" [value]="option.value">{{option.label}}</option>
+                        </select>     
+                
+                    </div>
+                    <div class="col">
+            
+                    <mat-label>Foto del usuario </mat-label>
+                    <input type="file" class="form-control" id="fotoUser" formControlName="fotoUser" (change)="onFileSelected($event)" accept="image/jpeg, image/jpg">
+                    
+            
+                    </div>
+                </div>
+            
+                <hr class="mx-n3">
+            
+                <div class="row">
+                    <div class="col">
+                    <mat-label>Foto actual </mat-label>
+                    <img *ngIf="userDatos.fotoUser" [src]="userDatos.fotoUser" class="img-preview text-center" alt="Foto del usuario">
+                    </div>
+                    <div class="col">
+                    <mat-label>Vista previa </mat-label>
+                    <img *ngIf="userForm.value.fotoUser" [src]="userForm.value.fotoUser" class="img-preview text-center" alt="Foto del residente">  
+                    </div>
+                </div>
+                
+                <hr class="mx-n3">
+
+            </div>
+            <button type="submit" onclick="onUpdateUser()">Enviar</button>
+        </form> 
+    </div>
+      
+
+    <!-- FIN EDITAR PERFIL  -->
+
+
+
+
+<h1 class="titulo"> HOLAAAAA</h1>
+<p class="text-regular"> que tal gente</p>
+
+
+
+
+    <script src='master.js'></script>
+    <script src="login-register.js"></script>
+
+    <!-- ACA SE SETEAN LOS VALORES SELECCIONADOS DE OPTIONS  -->
+    <script>
+        const textColorGuardado = localStorage.getItem("textColor");
+          if(textColorGuardado){
+             setTextStyle(textColorGuardado)
+          };
+    </script>
+    <script>
+        const fondoColorGuardado = localStorage.getItem("fondoColor");
+            if(fondoColorGuardado){
+                document.body.style.backgroundColor = obtenerColorFondo(fondoColorGuardado)
+            };
+    </script>
+
+
+
+</body>
+</html>

@@ -1,6 +1,21 @@
 
 
 
+
+const verificarToken = localStorage.getItem("token")
+
+// Obtener el elemento del menú de perfil
+const perfilDropdown = document.getElementById("userOptions");
+
+
+// Verificar si el usuario está registrado (tiene un token de verificación)
+if (verificarToken) {
+  perfilDropdown.style.display = "block"; // Mostrar el elemento del menú
+} else {
+  perfilDropdown.style.display = "none"; // Ocultar el elemento del menú
+}
+
+
 function Options(){
 
     const contentHtml = `
@@ -153,30 +168,62 @@ function obtenerColorTexto(textColor, elemento){
 
 // NAVEGACION O RUTEO 
 
-function HomeNav(){
-    const homeElement = document.getElementById("home");
-        if(homeElement){
-            homeElement.scrollIntoView({behavior:"smooth"});
-        }
-}
+// function HomeNav(){
+//     const homeElement = document.getElementById("home");
+//         if(homeElement){
+//             homeElement.scrollIntoView({behavior:"smooth"});
+//         }
+// }
 
-function LoginNav(){
-    const loginElement = document.getElementById("login");
-        if(loginElement){
-            loginElement.scrollIntoView({behavior:"smooth"});
-        }
-}
-function PerfilNav(){
-    const perfilElement = document.getElementById("perfil");
-        if(perfilElement){
-            perfilElement.scrollIntoView({behavior:"smooth"});
-        }
-}
-function UpdatePerfilNav(){
-    const updatePerfilElement = document.getElementById("updatePerfil");
-        if(updatePerfilElement){
-            updatePerfilElement.scrollIntoView({behavior:"smooth"});
-        }
-}
+// function LoginNav(){
+//     const loginElement = document.getElementById("login");
+//         if(loginElement){
+//             loginElement.scrollIntoView({behavior:"smooth"});
+//         }
+// }
+// function PerfilNav(){
+//     const perfilElement = document.getElementById("perfil");
+//         if(perfilElement){
+//             perfilElement.scrollIntoView({behavior:"smooth"});
+//         }
+// }
+// function UpdatePerfilNav(){
+//     const updatePerfilElement = document.getElementById("updatePerfil");
+//         if(updatePerfilElement){
+//             updatePerfilElement.scrollIntoView({behavior:"smooth"});
+//         }
+// }
 
 // FIN NAVEGACION O RUTEO 
+
+//  MOSTRAR SECCION U OCULTARLA 
+
+function SectionView(sectionID){
+    const sectionLoad = sectionID;
+        localStorage.setItem("sectionActual", sectionLoad);
+
+    const sections = document.querySelectorAll('section');
+        sections.forEach(section =>{
+            section.style.display = 'none';
+        });
+        const sectionViewer = document.getElementById(sectionID);
+            if(sectionViewer){
+                sectionViewer.style.display = 'block';
+            }
+}
+
+//  CORROBORA CUAL FUE LA ULTIMA SECCION ABIERTA Y LA MANTIENE AL RECARGAR 
+
+document.addEventListener("DOMContentLoaded", function() {
+    // Verificar si hay una sección almacenada en el localStorage
+    const seccionGuardada = localStorage.getItem("sectionActual");
+  
+    if (seccionGuardada) {
+      // Desplazarse a la sección guardada
+      const sectionViewer = document.getElementById(seccionGuardada);
+      if(sectionViewer){
+          sectionViewer.style.display = 'block';
+      }
+    }
+  });
+  

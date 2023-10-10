@@ -1,4 +1,4 @@
-const Usuarios = JSON.parse(localStorage.getItem("usuarios")) || [];
+var Usuarios = JSON.parse(localStorage.getItem("usuarios")) || [];
 
 function generateRandomToken(length) {
     const tokenArray = new Uint8Array(length / 2); // Creamos un arreglo de bytes de la mitad del tamaño deseado (cada byte representa dos caracteres hexadecimales)
@@ -16,7 +16,7 @@ function generateRandomToken(length) {
   
 
 
-const registerForm = document.getElementById("register");
+let registerForm = document.getElementById("register");
 
 registerForm.addEventListener("submit", function (event){
     event.preventDefault();
@@ -71,8 +71,6 @@ registerForm.addEventListener("submit", function (event){
         if(email){
             const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
             const emailValid = emailPattern.test(email);
-            const saveUsers = JSON.parse(localStorage.getItem("usuarios"));
-
             if(!emailValid){
                 Swal.fire({
                     title: 'Creación del usuario',
@@ -85,28 +83,20 @@ registerForm.addEventListener("submit", function (event){
                   })
                 return;
             }
-            if(saveUsers){
-                return !saveUsers.some((usuario) =>usuario.email === email )
-            }
          
         }
 
-        if(username){
-            const saveUsers = JSON.parse(localStorage.getItem("usuarios"));
-            if(saveUsers){
-                return !saveUsers.some((usuario) => usuario.username === username)
-            }
-        
-        }
-
+    
+    const userId = Usuarios.length + 1;
     const usuario = {
+        id:userId,
         username,
         email,
         password,
-        numCelular,
-        direccion,
-        birthday,
-        fotoUser,
+        numCelular : null,
+        direccion: null,
+        birthday: null,
+        fotoUser: null,
     }
 
 
@@ -162,10 +152,14 @@ loginForm.addEventListener("submit", function (event){
     const password = document.getElementById("password").value;
 
     const userHere = Usuarios.find (user => user.username === userID && user.password === password);
+    
 
         if(userHere){
             const token = generateRandomToken(16);
             localStorage.setItem("token",token);
+
+
+ 
 
             console.log(token);
 
@@ -257,7 +251,9 @@ document.addEventListener("DOMContentLoaded", function () {
   
         // Si userFromStorage.fotoUser es una URL válida, establece la imagen
         if (userFromStorage.fotoUser) {
-          document.querySelector("#userAvatar").src = userFromStorage.fotoUser;
+          document.querySelector("#fotoUser").src = userFromStorage.fotoUser;
+        }else{
+          document.querySelector("#fotoUser").src ="https://bootdey.com/img/Content/avatar/avatar7.png";
         }
       }
 

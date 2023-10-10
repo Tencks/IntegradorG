@@ -1,3 +1,7 @@
+*{
+    font-family: 'Roboto', sans-serif;
+}
+
 body{
     width: 100vw;
     overflow-x: hidden;
@@ -10,6 +14,22 @@ body{
 .titulo{
     color: #000;
 }
+.navColor {
+    background: beige;
+}
+
+
+/*PANEL DEL INICIO */
+
+
+.img-previewNotice{
+    width: 600px;
+    height: auto;
+    border: 1px solid black;
+    border-radius: 15px;
+}
+
+
 
 
 /* PANEL DEL USUARIO CSS  */
@@ -44,7 +64,7 @@ body{
 }
 .account-settings .about h5 {
     margin: 0 0 15px 0;
-    color: #007ae1;
+
 }
 .account-settings .about p {
     font-size: 0.825rem;

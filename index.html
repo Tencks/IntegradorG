@@ -4,10 +4,14 @@
     <meta charset='utf-8'>
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
     <title>Proyecto Integrador</title>
+    <link rel="shortcut icon" href="assets/icon.ico" type="image/x-icon">
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <link rel='stylesheet' type='text/css' media='screen' href='styles.css'>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;1,100;1,300;1,400;1,500&display=swap" rel="stylesheet">
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
 
@@ -18,9 +22,11 @@
     
     <!-- NAVBAR  -->
 
-    <nav class="navbar sticky-top navbar-expand-lg bg-body-tertiary" style="background: rebeccapurple !important;"> 
+    <nav class="navbar sticky-top navbar-expand-lg navColor"> 
         <div class="container-fluid">
-          <a class="navbar-brand" onclick="SectionView('home')" style="cursor: pointer;">Navbar</a>
+          <a class=" navbar-brand" onclick="SectionView('home')" style="cursor: pointer;">
+            <img src="assets/icon.ico" alt="Icono del Integrador" width="33" height="32">
+          </a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
@@ -28,22 +34,22 @@
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
              
                 <li class="nav-item">
-                <a class="nav-link active" aria-current="page" onclick="SectionView('home')" style="cursor: pointer;">Home</a>
+                <a class="titulo nav-link active" aria-current="page" onclick="SectionView('home')" style="cursor: pointer;">Home</a>
               </li>
               
               <li class="nav-item">
-                <a class="nav-link"  onclick="SectionView('login-register')" style="cursor: pointer;">Registrarse/Iniciar Sesion</a>
+                <a class="titulo nav-link"  onclick="SectionView('login-register')" style="cursor: pointer;">Registrarse/Iniciar Sesion</a>
               </li>
               
               <li class="nav-item dropdown" id="userOptions">
-                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <a class="titulo nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                   Perfil de Usuario
                 </a>
-                <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" onclick="SectionView('perfil')" style="cursor: pointer;">Entrar al perfil</a></li>
-                  <li><a class="dropdown-item" onclick="SectionView('updatePerfil')" style="cursor: pointer;">Editar perfil</a></li>
-                  <li><hr class="dropdown-divider"></li>
-                  <li><a class="dropdown-item" onclick="Options()" style="cursor: pointer;">Opciones</a></li>
+                <ul class="navColor dropdown-menu">
+                  <li><a class="titulo dropdown-item" onclick="SectionView('perfil')" style="cursor: pointer;">Entrar al perfil</a></li>
+                  <li><a class="titulo dropdown-item" onclick="SectionView('updatePerfil')" style="cursor: pointer;">Editar perfil</a></li>
+                  <li><hr class="titulo dropdown-divider"></li>
+                  <li><a class="titulo dropdown-item" onclick="Options()" style="cursor: pointer;">Opciones</a></li>
                 </ul>
               </li>
               
@@ -56,11 +62,30 @@
       <!-- INICIO  -->
 
       <section id="home" style="display: none;">
-        <div class="container">
-          <h1 class="titulo">Hola mundo</h1>
-           <h3 class="titulo">Disfrute su estadía</h3>
-           <p class="text-regular">si desea acceder a todo el contenido tendra que hacer click en donde dice Registro/Inicio en la barra de navegación.</p>
+        <div id="homeContainer" class="container">
+          <h1 id="homeTitle" class="titulo">Hola mundo</h1>
+           <h3 id="homeTitle2" class="titulo">Disfrute su estadía</h3>
+           <p id="homeText" class="text-regular">si desea acceder a todo el contenido tendra que hacer click en donde dice Registro/Inicio en la barra de navegación.</p>
+           <h3 class="titulo" id="homeCumple"></h3>
         </div>
+
+        <div class="container" id="noticias" >
+          <div class="text-center">
+            <h1 class="titulo">Sección de Noticias </h1>
+          </div>
+
+            <div class=" card-body" >
+              <div class=" d-block mx-auto col-md-8 card-background" id="noticiasCard" style="margin-bottom: 2%; margin-top: 2%;padding: 2%;">
+                <h2 class="text-center titulo" id="noticiasTitle"></h2>
+                <img class="mx-auto d-block img-previewNotice" id="noticiasImg">
+                <p class="text-center text-regular" id="noticiasDescription"></p>
+                <p class="text-regular" id="noticiasAutor"></p>
+                <a class="text-regular" id="noticiasUrl"></a>
+              </div>
+            </div>
+         
+        </div>
+
       </section>
 
       <!-- FIN INICIO  -->
@@ -72,39 +97,39 @@
 
     <!-- REGISTRO-INICIO  -->
 
-<section id="login-register" style="display: none;">
-
-  <div class="vh-100 bg-image" style="margin-top: 3%;background-color: brown; " id="login">
-    <div class="container"  id="login">
-    <div class="mask d-flex align-items-center h-100 gradient-custom-3">
-        <div class="container h-100">
-        <div class="row d-flex justify-content-center align-items-center h-100">
-            <div class="col-12 col-md-9 col-lg-7 col-xl-6">
-            <div class="card" style="border-radius: 15px;">
-                <div class="card-body p-5">
-                <h2 class="text-uppercase text-center mb-5">Ingresa al sistema</h2>
+    <section id="login-register" style="display: none;">
+      <div class="vh-100 bg-image" style="margin-top: 3%;" id="login">
+        <div class="container" id="login">
+          <div class="mask d-flex align-items-center h-100 gradient-custom-3">
+            <div class="container h-100">
+              <div class="row d-flex justify-content-center align-items-center h-100">
+                <div class="col-12 col-md-9 col-lg-7 col-xl-6">
+                  <div class="card" style="border-radius: 15px;" >
+                    <div class="card-background card-body p-5 ">
+                      <h2 class="text-uppercase text-center mb-5 titulo">Ingresa al sistema</h2>
+                     
 
         <form id="formLogin">
             <div class="col">
                 <div class="form-outline mb-4">
-                    <label class="form-label" >Nombre</label>
-                   <input type="text" id="user_id" class="form-control form-control-lg"/>
+                    <label class="titulo form-label" >Nombre</label>
+                   <input type="text" id="user_id" class="text-regular form-control form-control-lg"/>
                  </div>
     
                  <div class="form-outline mb-4">
-                  <label class="form-label" for="form3Example4cg" >Contraseña</label>
-                 <input type="password" id="password" class="form-control form-control-lg"/>
+                  <label class="titulo form-label" for="form3Example4cg" >Contraseña</label>
+                 <input type="password" id="password" class="text-regular form-control form-control-lg"/>
                </div>
     
              
     
                  <div class="d-flex justify-content-center">
                    <button type="submit"
-                     class="btn btn-success btn-block btn-lg gradient-custom-4 text-body">Ingresar</button>
+                     class="btn btn-secondary btn-block btn-lg gradient-custom-4 text-body">Ingresar</button>
                  </div>
     
-                 <p class="text-center text-muted mt-5 mb-0">Si no tienes una cuenta puedes <a onclick="OnRegisterButton()"
-                     class="fw-bold text-body" style="cursor: pointer;"><u>Ingresar aquí</u></a></p>
+                 <p class="text-regular text-center mt-5 mb-0">Si no tienes una cuenta puedes <a onclick="OnRegisterButton()"
+                     class="fw-bold text-body" style="cursor: pointer;"><u class="titulo">Ingresar aquí</u></a></p>
             </div>
         </form>
       
@@ -120,14 +145,15 @@
 
 
 <div class="vh-100 bg-image" id="registro">
-    <div class="container" style="background-color: brown;" >
+  <div class="container">
     <div class="mask d-flex align-items-center h-100 gradient-custom-3">
-        <div class="container h-100">
+      <div class="container h-100">
         <div class="row d-flex justify-content-center align-items-center h-100">
-            <div class="col-12 col-md-9 col-lg-7 col-xl-6">
-            <div class="card" style="border-radius: 15px;">
-                <div class="card-body p-5">
-                <h2 class="text-uppercase text-center mb-5">Registrarse</h2>
+          <div class="col-12 col-md-9 col-lg-7 col-xl-6">
+            <div class="card card-background" style="border-radius: 15px;">
+              <div class="card-body p-5">
+                <h2 class="text-uppercase text-center mb-5 titulo">Registrarse</h2>
+              
 
       <div class="container">
         <form id="register">
@@ -136,15 +162,15 @@
               
               <div class="col">
                 <div class="form-outline mb-4">
-                  <label class="form-label" for="form3Example1cg" >Nombre</label>
-                 <input type="text" id="username" class="form-control form-control-lg"/>
+                  <label class="titulo form-label" for="form3Example1cg" >Nombre</label>
+                 <input type="text" id="username" class="text-regular form-control form-control-lg"/>
                </div>
               </div>
 
              <div class="col">
               <div class="form-outline mb-4">
-                <label class="form-label" for="form3Example3cg" >Correo Electrónico</label>
-               <input type="email" id="email" class="form-control form-control-lg"/>
+                <label class="titulo titulo form-label" for="form3Example3cg" >Correo Electrónico</label>
+               <input type="email" id="email" class="text-regular form-control form-control-lg"/>
              </div>
 
              </div>
@@ -155,16 +181,16 @@
               <div class="col">
 
                 <div class="form-outline mb-4">
-                  <label class="form-label" for="form3Example4cg" >Contraseña</label>
-                 <input type="text" id="registerPassword" class="form-control form-control-lg"/>
+                  <label class="titulo form-label" for="form3Example4cg" >Contraseña</label>
+                 <input type="text" id="registerPassword" class="text-regular form-control form-control-lg"/>
                </div>
  
               </div>
               <div class="col">
 
                 <div class="form-outline mb-4">
-                  <label class="form-label" for="form3Example4cdg">Repite tu contraseña</label>
-                 <input type="text" id="confirmPassword" class="form-control form-control-lg" />
+                  <label class="titulo form-label" for="form3Example4cdg">Repite tu contraseña</label>
+                 <input type="text" id="confirmPassword" class="text-regular form-control form-control-lg" />
                </div>
 
               </div>
@@ -172,11 +198,11 @@
 
              <div class="d-flex justify-content-center">
                <button type="submit"
-                 class="btn btn-success btn-block btn-lg gradient-custom-4 text-body">Registrarse</button>
+                 class="btn btn-secondary btn-block btn-lg gradient-custom-4 text-body">Registrarse</button>
              </div>
 
-             <p class="text-center text-muted mt-5 mb-0">Si ya tienes una cuenta puedes <a onclick="OnLoginButton()"
-                 class="fw-bold text-body" style="cursor: pointer;"><u>Ingresar aquí</u></a></p>
+             <p class="text-regular text-center mt-5 mb-0">Si ya tienes una cuenta puedes <a onclick="OnLoginButton()"
+                 class="fw-bold text-body" style="cursor: pointer;"><u class="titulo">Ingresar aquí</u></a></p>
         </form>
 
     </div>
@@ -200,22 +226,22 @@
    
 <section id="perfil" style="display: none;">
 
-  <div class="row text-center bg-info" style="margin-bottom: 2.6vh;">
-    <h1 class="titulo display-4 fw-medium" style="padding: 1.5%;">Perfil del usuario</h1>
+  <div class="card-background row text-center" style="margin-bottom: 2.6vh;">
+    <h1 class="titulo display-4 fw-medium" style="padding: 1.5%;">Perfil de Usuario</h1>
 </div>
 
     <div class="container">
         <div class="row gutters">
           <div class="col-xl-3 col-lg-3 col-md-12 col-sm-12 col-12" style="margin-bottom: 2%;">
-            <div class="card h-100">
-              <div class="card-body">
+            <div class="card h-100" style="border-radius: 15px;">
+              <div class="card-body card-background">
                 <div class="account-settings">
                   <div class="user-profile">
                     <div class="user-avatar">
-                      <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="Default Avatar">
+                      <img id="fotoUser" alt="Default Avatar">
                     </div>
-                    <h5 class="user-name"></h5>
-                    <h6 class="user-email"></h6>
+                    <h5 class="titulo user-name"></h5>
+                    <h6 class="text-regular user-email"></h6>
                   </div>
                   <div class="about">
                     <h5 class="titulo">Descripción</h5>
@@ -228,35 +254,35 @@
 
 
           <div class="col-xl-9 col-lg-9 col-md-12 col-sm-12 col-12" style="margin-bottom: 2%;">
-            <div class="card h-100">
-              <div class="card-body">
+            <div class="card h-100" style="border-radius: 15px;">
+              <div class="card-body card-background">
                 <div class="row gutters">
                   <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                     <h5 class="titulo mb-2 ">Datos personales</h5>
                   </div>
                   <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                     <div class="form-group">
-                      <label for="fullName" class="titulo">Nombre</label>
+                      <label for="fullName" class="text-regular">Nombre</label>
                       <input type="text" class="text-regular form-control" id="fullName"  disabled>
                     </div>
                   </div>
                   <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                     <div class="form-group">
-                      <label for="eMail" class="titulo">Correo</label>
+                      <label for="eMail" class="text-regular">Correo</label>
                       <input type="email" class="text-regular form-control" id="eMail"  disabled>
                     </div>
                   </div>
                   
                   <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12" style="margin-top: 1%;">
                     <div class="form-group">
-                      <label for="phone" class="titulo">Número celular</label>
+                      <label for="phone" class="text-regular">Número celular</label>
                       <input type="text" class="text-regular form-control" id="phone" disabled>
                     </div>
                   </div>
 
                   <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12"  style="margin-top: 1%;">
                     <div class="form-group">
-                      <label for="phone" class="titulo">Domicilio</label>
+                      <label for="phone" class="text-regular">Domicilio</label>
                       <input type="text" class="text-regular form-control" id="adress"  disabled>
                     </div>
                   </div>
@@ -270,7 +296,7 @@
 
                   <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                     <div class="form-group">
-                      <label for="Street" class="titulo">Cumpleaños</label>
+                      <label for="Street" class="text-regular">Cumpleaños</label>
                       <input type="text" class="text-regular form-control" id="birthday"  disabled>
                     </div>
                   </div>
@@ -280,11 +306,11 @@
                   <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                     <p></p>
                     <div class="text-right">
-                      <button type="button" class="text-regular btn btn-primary" onclick="SectionView('updatePerfil')" style="margin-right: 1%;">
+                      <button type="button" class="text-regular btn btn-secondary" onclick="SectionView('updatePerfil')" style="margin-right: 1%;">
                         Actualizar datos
                       </button>
                      
-                      <button class="text-regular btn btn-danger" onclick="onLogout()">
+                      <button class="text-regular btn btn-secondary" onclick="onLogout()">
                         Desconectarse
                       </button>
                      
@@ -305,13 +331,13 @@
 
 
 <section id="updatePerfil" style="display: none;">
-  <div class="row  text-center bg-info" style="margin-bottom: 2.6vh;"  >
-    <h1 class="display-4 fw-medium" style="padding: 1.5%;">Actualizar datos del usuario</h1>
+
+  <div class="card-background row text-center" style="margin-bottom: 2.6vh;">
+  <h1 class="titulo display-4 fw-medium" style="padding: 1.5%;">Actualizar los Datos del Usuario</h1>
 </div>
 
 
-
-<div class="container" style="background-color: white;">
+<div class="card-background container">
     <form id="updatePerfil" >
 
         <div class="container" >
@@ -319,12 +345,12 @@
               <div class="container h-100">
                 <div class="row">
                   <div class="col">
-                    <mat-label>Domicilio</mat-label>
-                    <input type="text" class="form-control" formControlName="direccion">
+                    <label class="titulo">Domicilio</label>
+                    <input type="text" class="text-regular form-control" formControlName="direccion">
                   </div>
                   <div class="col">
-                      <mat-label>Número de celular</mat-label>
-                      <input type="text" class="form-control"  formControlName="numCelular">
+                      <label class="titulo">Número de celular</label>
+                      <input type="text" class="text-regular form-control"  formControlName="numCelular">
                     </div>
                 </div>
         
@@ -332,8 +358,8 @@
       
                 <div class="row">
                   <div class="col">
-                      <mat-label>Desripción</mat-label>
-                      <textarea class="form-control" rows="3"  formControlName="descriptionUser"></textarea>
+                      <label class="titulo">Desripción</label>
+                      <textarea class="text-regular form-control" rows="3"  formControlName="descriptionUser"></textarea>
                     </div>
                 </div>
            
@@ -346,25 +372,12 @@
             
             <div class="row">
                 <div class="col">
-                <mat-label>Nombre de usuario</mat-label>
-                <input type="text" class="form-control"  aria-label="Nombre" formControlName="username">
+                <label class="titulo">Nombre de usuario</label>
+                <input type="text" class="text-regular form-control"  aria-label="Nombre" formControlName="username">
                 </div>
                 <div class="col">
-                <mat-label>Contraseña</mat-label>
-                <input type="password" class="form-control" aria-label="Apellido" formControlName="password" >
-                </div>
-            </div>
-        
-            <hr class="mx-n3">
-        
-            <div class="row">
-                <div class="col">
-                <mat-label>Fecha de cumpleaños</mat-label>
-                <input type="date" class="form-control"  formControlName="birthday">
-                </div>
-                <div class="col">
-                <mat-label>Correo electrónico</mat-label>
-                <input type="email" class="form-control" formControlName="email" >
+                <label class="titulo">Contraseña</label>
+                <input type="password" class="text-regular form-control" aria-label="Apellido" formControlName="password" >
                 </div>
             </div>
         
@@ -372,39 +385,32 @@
         
             <div class="row">
                 <div class="col">
-        
-                    <mat-label>Selección de cargo </mat-label>
-                    <select class="form-select" aria-label="Default select example"  formControlName="cargo" [disabled]="true" >
-                        <option *ngFor="let option of cargoClass" [disabled]="true" [value]="option.value">{{option.label}}</option>
-                    </select>     
-            
+                <label class="titulo">Fecha de cumpleaños</label>
+                <input type="date" class="text-regular form-control"  formControlName="birthday">
                 </div>
                 <div class="col">
+                <label class="titulo">Correo electrónico</label>
+                <input type="email" class="text-regular form-control" formControlName="email" >
+                </div>
+            </div>
         
-                <mat-label>Foto del usuario </mat-label>
-                <input type="file" class="form-control" id="fotoUser" formControlName="fotoUser" (change)="onFileSelected($event)" accept="image/jpeg, image/jpg">
+            <hr class="mx-n3">
+        
+            <div class="row">
+
+                <div class="col">
+        
+                <label class="titulo">Foto del usuario </label>
+                <input type="text" class="text-regular form-control" id="fotoUser" formControlName="fotoUser" placeholder="Ingrese aquí la Url de la imagen que sea utilizar">
                 
         
                 </div>
             </div>
         
             <hr class="mx-n3">
-        
-            <div class="row">
-                <div class="col">
-                <mat-label>Foto actual </mat-label>
-                <img *ngIf="userDatos.fotoUser" [src]="userDatos.fotoUser" class="img-preview text-center" alt="Foto del usuario">
-                </div>
-                <div class="col">
-                <mat-label>Vista previa </mat-label>
-                <img *ngIf="userForm.value.fotoUser" [src]="userForm.value.fotoUser" class="img-preview text-center" alt="Foto del residente">  
-                </div>
-            </div>
-            
-            <hr class="mx-n3">
 
         </div>
-        <button class="btn btn-primary" type="submit" onclick="onUpdateUser()">Enviar</button>
+        <button class="btn btn-secondary" type="submit" onclick="onUpdateUser()">Enviar</button>
     </form> 
 </div>
   
@@ -431,6 +437,7 @@
             };
     </script>
 
+<script src="api.js"></script>
 
 
 </body>

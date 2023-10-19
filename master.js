@@ -18,23 +18,39 @@ const fechita = new Date();
 const cumple =  user.birthday;
 const fechitaCumple = new Date(cumple);
 
-const fechitaDif = fechitaCumple -  fechita;
+// Obtener el año actual
+const añoActual = fechita.getFullYear();
+
+// Obtener el año del próximo cumpleaños
+const añoCumple = fechitaCumple.getFullYear();
+
+// Calcular la fecha del próximo cumpleaños
+const proximoCumple = new Date(añoActual, fechitaCumple.getMonth(), fechitaCumple.getDate());
+
+// Si la fecha de cumpleaños ya ocurrió este año, calcular la fecha del próximo año
+if (fechita > proximoCumple) {
+    proximoCumple.setFullYear(añoActual + 1);
+}
 
 
-const  homeCumple = homeSection.querySelector('#homeCumple');
+
+const fechitaDif = proximoCumple - fechita ;
+
+
+let  homeCumple = homeSection.querySelector('#homeCumple');
 
 
 function ActualizarTiempoCumple(){
     //PREDEF  MATH
 const  Matematika = Math
-let  seg = Matematika.floor(fechitaDif/1000);
-let  min  = Matematika.floor(seg/60);
-let hour = Matematika.floor(min/60);
-let dias = Matematika.floor(hour/24);
+var  seg = Matematika.floor(fechitaDif/1000);
+var  min  = Matematika.floor(seg/60);
+var hour = Matematika.floor(min/60);
+var dias = Matematika.floor(hour/24);
 
-let hourRest = hour % 24;
-let  minRest = min % 60;
-let segRest = seg % 60;
+var hourRest = hour % 24;
+var  minRest = min % 60;
+var segRest = seg % 60;
 
 homeCumple.textContent = `Tan solo quedan ${dias} días y ${hourRest}:${minRest}:${segRest} para su cumpleaños!`;
 
@@ -59,7 +75,7 @@ if (verificarToken) {
           }
            
           
-          setInterval(ActualizarTiempoCumple(), 1000);
+          setInterval(ActualizarTiempoCumple(), 1);
         })
           
 
